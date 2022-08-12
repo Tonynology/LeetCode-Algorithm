@@ -6,17 +6,22 @@
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        prev = None
-        curr = head
+        if (not head) or (not head.next):
+            return head
         
-        while curr:
-            next_temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_temp
+        p = self.reverseList(head.next) # p is 5
+        head.next.next = head # head is 4, head.next is 5
+        head.next = None
+        return p
         
-        return prev
+#         prev = None
+#         curr = head
         
-        #prev = None
-        # curr = head
-        # while curr
+#         while curr:
+#             next_temp = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = next_temp
+        
+#         return prev
+        
